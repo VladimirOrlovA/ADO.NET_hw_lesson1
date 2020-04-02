@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{77A85E4E-843E-44A7-9A57-DDC25B6D301C}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>ADO.NET_hw_lesson1</RootNamespace>
-    <AssemblyName>ADO.NET_hw_lesson1</AssemblyName>
+    <ProjectGuid>{26F724F9-A01F-44B3-B37D-0D9ED0051524}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ConnOracleClient</RootNamespace>
+    <AssemblyName>ConnOracleClient</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -33,8 +31,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.122.19.1, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.19.6.0\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,29 +46,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="connOracleClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ConnOdbc\ConnOdbc.csproj">
-      <Project>{8637d723-c339-4020-9ebf-260d811e88da}</Project>
-      <Name>ConnOdbc</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ConnOleDb\ConnOleDb.csproj">
-      <Project>{6dd185b3-3a13-4fc6-90ce-59edce0a6182}</Project>
-      <Name>ConnOleDb</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ConnOracleClient\ConnOracleClient.csproj">
-      <Project>{26f724f9-a01f-44b3-b37d-0d9ed0051524}</Project>
-      <Name>ConnOracleClient</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ConnSqlClient\ConnSqlClient.csproj">
-      <Project>{d2b31d95-72f7-424f-bb4d-392e5f4fe359}</Project>
-      <Name>ConnSqlClient</Name>
-    </ProjectReference>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
